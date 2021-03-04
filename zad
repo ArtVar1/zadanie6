@@ -1,0 +1,11 @@
+package com.company;
+import java.util.Scanner;
+import static java.lang.Math.*;
+public class Main{
+
+    public static void main(String[] args){
+    
+        auto supra = new silnik("2JZ"), new kolor("czerwony"), new rozmiar("kompakt"));
+System.out.println(supra);
+    }
+}
