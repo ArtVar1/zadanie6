@@ -2,18 +2,16 @@ package com.company;
 import java.util.Scanner;
 import static java.lang.Math.*;
 public class auto {
-
         String kolor;;
         String rozmiar;
         String silnik;
-
-
-            public auto(String kolor, String rozmiar, String silnik) {
+          public auto(String kolor, String rozmiar, String silnik) {
             this.kolor = kolor;
             this.rozmiar = rozmiar;
             this.silnik = silnik;
         }
-        public String toString () {
+        public String toString () 
+        {
             return String.format("silnik  %s kolor %s, wielkość %s ", silnik, kolor, rozmiar);
         }
     }
