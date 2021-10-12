@@ -1,0 +1,71 @@
+Math.ceil();
+Math.floor();
+Math.round();
+Pierwsza z nich zaokrągla do góry, tzn. mając liczby:
+
+0.4, 0.7, 1.2, 6.5
+otrzymamy odpowiednio:
+
+1, 1, 2, 7
+Druga metoda zaokrągla w dół, czyli dla naszych przykładowych liczb otrzymamy:
+
+0, 0, 1, 6
+Trzecia metoda zaokrągla klasycznie wg normalnych reguł matematycznych, zatem otrzymamy:
+
+0, 1, 1, 7
+Która z tych metod przyda się nam do aplikacji?
+
+SPOSÓB NA WYLOSOWANIE LICZBY Z ZAKRESU OD 1 DO 6
+rzut = Math.floor(Math.random() * 6 + 1);
+JAK RZUCIĆ KOSTKĄ 100 RAZY PRZY UŻYCIU JAVASCRIPT?
+Wystarczy użyć pętli, która wykona się 100 razy, a w niej umieścimy nasz rzut kostką. Aby rzuty zapisywały się, stworzymy tablicę, do której będziemy zapisywać kolejne rzuty.
+
+100 RZUTÓW KOSTKĄ
+ var rzut = [];
+        for (var i = 0; i < 100; i++) {
+            rzut[i] = Math.floor(Math.random() * 6 + 1);
+        }
+        alert(rzut.join());
+APLIKACJA
+Skoro potrafimy już zasymulować 100 rzutów kostką, napiszmy całą aplikację, która policzy ile razy wypadnie dana liczba. W tym celu, na początku deklarujemy zmienne:
+
+tablicę do przechowywania rzutów
+tablicę w której będziemy zliczać ile razy wypadnie dana liczba
+napis za pomocą którego poinformujemy użytkownika o wynikach naszego eksperymentu.
+var rzut = [];
+        var stat = [0, 0, 0, 0, 0, 0];
+        var napis = "";
+Teraz rozpoczniemy pętle, tak jak przy wcześniej rzucając 100 razy kostką.
+
+for (var i = 0; i < 100; i++) {
+            rzut[i] = Math.floor(Math.random() * 6 + 1);
+Zanim zakończymy działanie pętli zastanówmy się jak zapisywać do tablicy stat ile razy wypadła dana liczba. Moglibyśmy użyć instrukcji warunkowej, która sprawdzałaby czy wypadła 1, jeśli tak, to zwiększamy o jeden wartość w tablicy stat odpowiadającej jedynce(w moim przypadku będzie to pierwsza pozycja z indeksem 0).
+
+if(rzut[i]==1) stat[i]++;
+I tak dalej, sprawdzając wszystkie możliwości. Warto jednak by było zastosować w tym celu inną instrukcję, taką która ze swojej definicji zastępuje wiele instrukcji if. Skorzystamy z instrukcji switch, która w zależności od przypadku(case) będzie zachowywała się nieco inaczej. Pamiętaj, że po każdym przypadku musisz użyć instrukcji break.
+
+switch (rzut[i]) {
+            case 1:
+                stat[0]++;
+                break;
+            case 2:
+                stat[1]++;
+                break;
+            case 3:
+                stat[2]++;
+                break;
+            case 4:
+                stat[3]++;
+                break;
+            case 5:
+                stat[4]++;
+                break;
+            case 6:
+                stat[5]++;
+                break;
+            }
+CZY MOŻNA UDOSKONALIĆ NASZ KOD?
+Oczywiście, że tak, możemy całkowicie wyeliminować sprawdzanie czy to za pomocą if, czy switch i wykorzystać następujący kod…
+
+stat[rzut[i] - 1] += 1;
+CO ROBI TEN KOD?
